@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  }
+}
+
+@layer components {
+  .glass-morphism {
+    background: rgba(26, 35, 50, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .flow-line {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+  }
+
+  .flow-line-active {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: flowAnimation 3s ease-in-out forwards;
+  }
+
+  .flow-particle {
+    opacity: 0;
+    animation: particleFlow 3s ease-in-out forwards;
+  }
+}
+
+@layer utilities {
+  .text-shadow-gold {
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes flowAnimation {
+  0% {
+    stroke-dashoffset: 200;
+    stroke-opacity: 0;
+  }
+  10% {
+    stroke-opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-opacity: 1;
+  }
+}
+
+@keyframes particleFlow {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  }
+  to {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+  }
+}
+
+* {
+  scroll-behavior: smooth;
+}

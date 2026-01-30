@@ -1,0 +1,24 @@
+{
+  "name": "Unicorn Mobile Dev Machine",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "features": {
+    "ghcr.io/prulloac/devcontainer-features/ollama:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dsznajder.es7-react-js-snippets",
+        "ritwickdey.LiveServer",
+        "christian-kohler.path-intellisense",
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "editor.fontSize": 14,
+        "editor.wordWrap": "on",
+        "terminal.integrated.fontSize": 12
+      }
+    }
+  },
+  "forwardPorts": [3000, 11434],
+  "postCreateCommand": "ollama serve & sleep 5 && ollama pull llama3.2:1b"
+}
